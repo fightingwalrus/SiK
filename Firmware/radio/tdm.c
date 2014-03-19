@@ -41,6 +41,8 @@
 #include "golay.h"
 #include "freq_hopping.h"
 #include "crc.h"
+#include "board.h"
+#include "power.h"
 
 #define USE_TICK_YIELD 1
 
@@ -127,6 +129,8 @@ __pdata static uint16_t lbt_rand;
 /// test data to display in the main loop. Updated when the tick
 /// counter wraps, zeroed when display has happened
 __pdata uint8_t test_display;
+
+__pdata uint8_t debounce_count; 
 
 /// set when we should send a statistics packet on the next round
 static __bit send_statistics;
@@ -493,6 +497,24 @@ tdm_serial_loop(void)
 		if (pdata_canary != 0x41) {
 			panic("pdata canary changed\n");
 		}
+
+
+        //AMN32: check if we should go to sleep..zzzzzzz
+        if (PIN_ENABLE == 1)
+            debounce_count++;
+        else
+            debounce_count = 0;
+        
+        if (debounce_count > 254)
+        {
+            //ambien time
+            LED_ACTIVITY = LED_OFF;
+            LED_RADIO = LED_OFF;
+            LPM_Sleep();
+        }
+            
+        //end sleep logic
+
 
 		// give the AT command processor a chance to handle a command
 		at_command();

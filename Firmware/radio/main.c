@@ -41,6 +41,7 @@
 #include "tdm.h"
 #include "timer.h"
 #include "freq_hopping.h"
+#include "power.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 /// @name	Interrupt vector prototypes
@@ -117,6 +118,9 @@ main(void)
 
 	// Do hardware initialisation.
 	hardware_init();
+
+	LPM_Init();
+
 
 	// do radio initialisation
 	radio_init();
