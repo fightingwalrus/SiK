@@ -22,6 +22,8 @@
 #include <stdarg.h>
 #include "board.h"
 #include "power.h"
+#include "radio.h"
+#include "Si1000_defs.h"
 
 
 //-----------------------------------------------------------------------------
@@ -56,6 +58,9 @@ void LPM_Init (void)
 //-----------------------------------------------------------------------------
 void LPM_Sleep (void)
 {
+
+
+  register_write(EZRADIOPRO_OPERATING_AND_FUNCTION_CONTROL_1, 0x00);
    
    // Save current system clock selection and select the low power oscillator
    // divided by 2 as the system clock

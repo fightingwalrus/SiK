@@ -49,7 +49,7 @@ __pdata struct radio_settings settings;
 
 // internal helper functions
 //
-static void	register_write(uint8_t reg, uint8_t value) __reentrant;
+//static void	register_write(uint8_t reg, uint8_t value) __reentrant;
 static uint8_t	register_read(uint8_t reg);
 static bool	software_reset(void);
 static void	set_frequency_registers(uint32_t frequency);
@@ -942,7 +942,7 @@ radio_set_network_id(uint16_t id)
 /// @param reg			The register to write
 /// @param value		The value to write
 ///
-static void
+void
 register_write(uint8_t reg, uint8_t value) __reentrant
 {
 	EX0_SAVE_DISABLE;

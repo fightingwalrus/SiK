@@ -289,4 +289,7 @@ extern int16_t radio_temperature(void);
 
 extern void radio_set_diversity(bool enable);
 
+extern void	register_write(uint8_t reg, uint8_t value) __reentrant;
+
+
 #endif // _RADIO_H_
