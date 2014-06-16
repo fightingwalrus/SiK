@@ -70,7 +70,8 @@ extern void    T3_ISR(void)            __interrupt(INTERRUPT_TIMER3);
 
 //@}
 
-__code const char g_banner_string[] = "SiK " stringify(APP_VERSION_HIGH) "." stringify(APP_VERSION_LOW) " on " BOARD_NAME;
+__code const char g_banner_string[] = "SiKLP " stringify(APP_VERSION_HIGH) "." stringify(APP_VERSION_LOW) " " BOARD_NAME;
+__code const char g_fwr_version_string[] = "1";
 __code const char g_version_string[] = stringify(APP_VERSION_HIGH) "." stringify(APP_VERSION_LOW);
 
 __pdata enum BoardFrequency	g_board_frequency;	///< board info from the bootloader

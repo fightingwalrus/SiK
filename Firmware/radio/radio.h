@@ -118,6 +118,7 @@ extern uint8_t printf_end_capture(void);
 // Board infop
 extern __code const char 		g_version_string[];	///< printable version string
 extern __code const char 		g_banner_string[];	///< printable startup banner string
+extern __code const char		g_fwr_version_string[];  ///< FWR lp version string
 extern __pdata enum BoardFrequency	g_board_frequency;	///< board RF frequency from the bootloader
 extern __pdata uint8_t			g_board_bl_version;	///< bootloader version
 

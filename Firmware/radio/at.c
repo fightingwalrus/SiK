@@ -342,6 +342,9 @@ at_i(void)
 	case '7':
 		tdm_show_rssi();
 		return;
+	case '9':
+		printf("%s\n", g_fwr_version_string);
+		return;	
 	default:
 		at_error();
 		return;
